@@ -29,7 +29,7 @@ jobs:
     inputs:
       app_location: '/'
       output_location: '$(output_path)'
-      azure_static_web_apps_api_token: $(revhire-app3335plan (B1:1))
+      azure_static_web_apps_api_token: $(token)
       repo_token: $(System.AccessToken)
       action: 'upload'
 
@@ -41,5 +41,5 @@ jobs:
   steps:
   - task: AzureStaticWebApp@0
     inputs:
-      azure_static_web_apps_api_token: $(revhire-app3335plan (B1:1))
+      azure_static_web_apps_api_token: $(token)
       action: 'close'
