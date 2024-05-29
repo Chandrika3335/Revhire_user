@@ -1,0 +1,23 @@
+# HTML
+
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
+- task: PublishBuildArtifacts@1
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '/'
+    output_location: '{angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}'
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
