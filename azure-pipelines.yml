@@ -23,40 +23,13 @@ steps:
     output_location: '{angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}'
 # Archive your static HTML project and save it with the build record.
 # Add steps that build, run tests, deploy, and more:
-- task: AzureAppServiceSettings@1
+- task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Free Trial (b3566fca-493d-40a2-ada5-dd271799daf0)'
-    appName: 'revhire-app3335'
-    resourceGroupName: 'revhire-resources'
-    appSettings: |
-      {
-          "name": "key1",
-          "value": "valueabcd",
-          "slotSetting": false
-         },
-         {
-          "name": "key2",
-          "value": "valueefgh",
-          "slotSetting": true
-         }
-    generalSettings: |
-      {
-          "alwaysOn": true,
-          "webSocketsEnabled": false
-         }
-    connectionStrings: |
-      {
-          "name": "key1",
-          "value": "valueabcd",
-          "type": "MySql",
-          "slotSetting": false
-         },
-         {
-          "name": "key2",
-          "value": "valueefgh",
-          "type": "Custom",
-          "slotSetting": true
-         }
+    azureSubscription: 'Free Trial(b3566fca-493d-40a2-ada5-dd271799daf0)'
+    appType: 'webApp'
+    appName: 
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
 - task: AzureRmWebAppDeployment@4
   inputs:
       ConnectionType: 'AzureRM'
