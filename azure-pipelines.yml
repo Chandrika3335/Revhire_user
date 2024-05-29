@@ -32,4 +32,10 @@ steps:
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # Path to your deployable artifact
     enableCustomDeployment: true
     deploymentMethod: 'zipDeploy'
-  
+- task: AzureRmWebAppDeployment@4
+  inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Free Trial(b3566fca-493d-40a2-ada5-dd271799daf0)'
+      appType: 'webApp'
+      WebAppName: 'revhire-app3335'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
