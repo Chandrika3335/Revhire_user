@@ -35,6 +35,7 @@ steps:
     app_location: '/'
     output_location: '{angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}'
     production_branch: 'main'
+    deployment_environment: Deployment_Token
 - task: AzureRmWebAppDeployment@4
   inputs:
       ConnectionType: 'AzureRM'
