@@ -32,3 +32,4 @@ steps:
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # Path to your deployable artifact
     enableCustomDeployment: true
     deploymentMethod: 'zipDeploy'
+  
