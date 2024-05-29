@@ -30,6 +30,11 @@ steps:
     appName: 
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '/'
+    output_location: '{angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}'
+    production_branch: 'main'
 - task: AzureRmWebAppDeployment@4
   inputs:
       ConnectionType: 'AzureRM'
