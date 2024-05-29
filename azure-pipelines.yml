@@ -1,3 +1,5 @@
+
+
 # HTML
 
 # https://aka.ms/yaml
@@ -21,3 +23,12 @@ steps:
     output_location: '{angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}'
 # Archive your static HTML project and save it with the build record.
 # Add steps that build, run tests, deploy, and more:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'revhire-web-app-src'
+    appType: 'webApp'
+    WebAppName: 'revhire-app3335'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip' # Path to your deployable artifact
+    enableCustomDeployment: true
+    deploymentMethod: 'zipDeploy'
