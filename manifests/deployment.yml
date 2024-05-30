@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: revhire 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: revhire
+  template:
+    metadata:
+      labels:
+        app: revhire 
+    spec:
+      containers:
+        - name: revhire 
+          image: revhireacrchandu2001.azurecr.io/revhire
+          ports:
+          - containerPort: 4200
